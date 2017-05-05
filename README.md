@@ -1,4 +1,4 @@
-# Project example of using our framework Objectivity.Test.Automation.Common with SpeckFlow installed from NuGet package
+# Project example of using our framework Objectivity.Test.Automation.Common with SpecFlow installed from NuGet package
 https://github.com/ObjectivityLtd/Test.Automation
 
 
