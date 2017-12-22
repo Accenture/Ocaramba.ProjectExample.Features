@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Objectivity.Test.Automation.Tests.Features.TestFeatures
+namespace Test.Automation.ProjectExample.Features.TestFeatures
 {
     using TechTalk.SpecFlow;
     
