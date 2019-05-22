@@ -23,11 +23,10 @@
 using System;
 using System.Globalization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Objectivity.Test.Automation.Common;
+using Ocaramba.ProjectExample.Features.PageObjects;
 using TechTalk.SpecFlow;
-using Test.Automation.ProjectExample.Features.PageObjects;
 
-namespace Test.Automation.ProjectExample.Features.StepDefinitions
+namespace Ocaramba.ProjectExample.Features.StepDefinitions
 {
     [Binding]
     public class CommonSteps

@@ -20,24 +20,24 @@
 //     SOFTWARE.
 // </license>
 
-namespace Objectivity.Test.Automation.Tests.Features
+namespace Ocaramba.Tests.Features
 {
     using System;
 
     using NUnit.Framework;
-    using Objectivity.Test.Automation.Common;
-    using Objectivity.Test.Automation.Common.Logger;
+    using Ocaramba;
+    using Ocaramba.Logger;
 
     using TechTalk.SpecFlow;
 
     /// <summary>
-    /// The base class for all tests <see href="https://github.com/ObjectivityLtd/Test.Automation/wiki/ProjectTestBase-class">More details on wiki</see>
+    /// The base class for all tests <see href="https://github.com/ObjectivityLtd/Ocaramba/wiki/ProjectTestBase-class">More details on wiki</see>
     /// </summary>
     [Binding]
     public class ProjectTestBase : TestBase
     {
         private readonly ScenarioContext scenarioContext;
-        private readonly DriverContext driverContext = new DriverContext();
+        private readonly DriverContext driverContext = new Ocaramba.DriverContext();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectTestBase"/> class.
@@ -86,7 +86,6 @@ namespace Objectivity.Test.Automation.Tests.Features
         [BeforeFeature]
         public static void BeforeClass()
         {
-            
         }
 
         /// <summary>
@@ -95,7 +94,6 @@ namespace Objectivity.Test.Automation.Tests.Features
         [AfterFeature]
         public static void AfterClass()
         {
-            
         }
 
         /// <summary>
@@ -117,14 +115,28 @@ namespace Objectivity.Test.Automation.Tests.Features
         [After]
         public void AfterTest()
         {
-            this.DriverContext.IsTestFailed = this.scenarioContext.TestError != null || !this.driverContext.VerifyMessages.Count.Equals(0);
-            var filePaths = this.SaveTestDetailsIfTestFailed(this.driverContext);
-            this.SaveAttachmentsToTestContext(filePaths);
-            this.DriverContext.Stop();
-            this.LogTest.LogTestEnding(this.driverContext);
-            if (this.IsVerifyFailedAndClearMessages(this.driverContext) && this.scenarioContext.TestError == null)
+            try
             {
-                Assert.Fail();
+                this.DriverContext.IsTestFailed = this.scenarioContext.TestError != null || !this.driverContext.VerifyMessages.Count.Equals(0);
+                var filePaths = this.SaveTestDetailsIfTestFailed(this.driverContext);
+                this.SaveAttachmentsToTestContext(filePaths);
+                var javaScriptErrors = this.DriverContext.LogJavaScriptErrors();
+
+                this.LogTest.LogTestEnding(this.driverContext);
+                if (this.IsVerifyFailedAndClearMessages(this.driverContext) && this.scenarioContext.TestError == null)
+                {
+                    Assert.Fail();
+                }
+
+                if (javaScriptErrors)
+                {
+                    Assert.Fail("JavaScript errors found. See the logs for details");
+                }
+            }
+            finally
+            {
+                // the context should be cleaned up no matter what
+                this.DriverContext.Stop();
             }
         }
 

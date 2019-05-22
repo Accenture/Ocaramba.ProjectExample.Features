@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Test.Automation.ProjectExample.Features.TestFeatures
+namespace Ocaramba.ProjectExample.Features.TestFeatures
 {
     using TechTalk.SpecFlow;
     
@@ -192,3 +192,4 @@ this.ScenarioSetup(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

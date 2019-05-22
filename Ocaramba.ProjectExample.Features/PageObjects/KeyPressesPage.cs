@@ -24,17 +24,16 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using NLog;
-using Objectivity.Test.Automation.Common;
-using Objectivity.Test.Automation.Common.Extensions;
-using Objectivity.Test.Automation.Common.Types;
-using Objectivity.Test.Automation.Tests.PageObjects;
+using Ocaramba.Extensions;
+using Ocaramba.Tests.PageObjects;
+using Ocaramba.Types;
 using OpenQA.Selenium;
 
-namespace Test.Automation.ProjectExample.Features.PageObjects
+namespace Ocaramba.ProjectExample.Features.PageObjects
 {
     public class KeyPressesPage : ProjectPageBase
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly NLog.Logger Logger = LogManager.GetCurrentClassLogger();
 
         private readonly ElementLocator keyPressesPageHeader = new ElementLocator(Locator.XPath, "//h3[.='Key Presses']");
 

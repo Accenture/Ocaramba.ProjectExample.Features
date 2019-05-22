@@ -20,15 +20,14 @@
 //     SOFTWARE.
 // </license>
 
-using Objectivity.Test.Automation.Common;
-using Objectivity.Test.Automation.Common.Extensions;
-using Objectivity.Test.Automation.Common.Types;
-using Objectivity.Test.Automation.Common.WebElements;
-using Objectivity.Test.Automation.Tests.PageObjects;
+using Ocaramba.Extensions;
+using Ocaramba.Tests.PageObjects;
+using Ocaramba.Types;
+using Ocaramba.WebElements;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace Test.Automation.ProjectExample.Features.PageObjects
+namespace Ocaramba.ProjectExample.Features.PageObjects
 {
     public class DropdownPage : ProjectPageBase
     {
