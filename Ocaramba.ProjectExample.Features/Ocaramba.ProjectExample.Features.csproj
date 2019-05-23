@@ -92,7 +92,6 @@
   <ItemGroup>
     <Compile Include="PageObjects\DropdownPage.cs" />
     <Compile Include="PageObjects\InternetPage.cs" />
-    <Compile Include="PageObjects\KeyPressesPage.cs" />
     <Compile Include="ProjectPageBase.cs" />
     <Compile Include="ProjectTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

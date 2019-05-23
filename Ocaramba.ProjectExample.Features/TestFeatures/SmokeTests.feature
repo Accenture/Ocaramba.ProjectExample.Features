@@ -48,37 +48,3 @@ Scenario: Verify if dropdown option can be selected by index
 	When I select option with index '1'
 	And I check selected option
 	Then Option with text "Option 1" is selected
-
-
-Scenario Outline: Key Presses Test
-	Given Default page is opened
-	When I click "key_presses" link
-	And I press <key>
-	Then Valid <message> is displayed
-	
-Examples: 
-	| key          | message     |
-	| "ESC"        | "ESCAPE"    |
-	| "F2"         | "F2"        |
-	| "1"          | "NUMPAD1"   |
-	| "TAB"        | "TAB"       |
-	| "SPACE"      | "SPACE"     |
-	| "ARROW DOWN" | "DOWN"      |
-	| "ARROW LEFT" | "LEFT"      |
-	| "ALT"        | "ALT"       |
-	| "SHIFT"      | "SHIFT"     |
-	| "PAGE UP"    | "PAGE_UP"   |
-	| "PAGE DOWN"  | "PAGE_DOWN" |
-	| "DELETE"     | "DELETE"    |
-	| "MULTIPLY"   | "MULTIPLY"  |
-	| "SUBTRACT"   | "SUBTRACT"  |
-
-Scenario Outline: Do not press any key
-	Given Default page is opened
-	When I click "key_presses" link
-	When I press <key>
-	Then Results element is not displayed
-	
-Examples: 
-	| key |
-	| ""  |

@@ -135,59 +135,6 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Key Presses Test")]
-        [NUnit.Framework.TestCaseAttribute("\"ESC\"", "\"ESCAPE\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"F2\"", "\"F2\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"1\"", "\"NUMPAD1\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"TAB\"", "\"TAB\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"SPACE\"", "\"SPACE\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"ARROW DOWN\"", "\"DOWN\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"ARROW LEFT\"", "\"LEFT\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"ALT\"", "\"ALT\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"SHIFT\"", "\"SHIFT\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"PAGE UP\"", "\"PAGE_UP\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"PAGE DOWN\"", "\"PAGE_DOWN\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"DELETE\"", "\"DELETE\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"MULTIPLY\"", "\"MULTIPLY\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"SUBTRACT\"", "\"SUBTRACT\"", null)]
-        public virtual void KeyPressesTest(string key, string message, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Key Presses Test", exampleTags);
-#line 53
-this.ScenarioSetup(scenarioInfo);
-#line 54
- testRunner.Given("Default page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 55
- testRunner.When("I click \"key_presses\" link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 56
- testRunner.And(string.Format("I press {0}", key), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 57
- testRunner.Then(string.Format("Valid {0} is displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do not press any key")]
-        [NUnit.Framework.TestCaseAttribute("\"\"", null)]
-        public virtual void DoNotPressAnyKey(string key, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do not press any key", exampleTags);
-#line 76
-this.ScenarioSetup(scenarioInfo);
-#line 77
- testRunner.Given("Default page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 78
- testRunner.When("I click \"key_presses\" link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 79
- testRunner.When(string.Format("I press {0}", key), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 80
- testRunner.Then("Results element is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore

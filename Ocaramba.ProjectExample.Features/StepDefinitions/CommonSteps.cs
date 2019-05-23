@@ -73,12 +73,6 @@ namespace Ocaramba.ProjectExample.Features.StepDefinitions
             this.scenarioContext.Set(selectedText, "SelectedText");
         }
 
-        [When(@"I press ""(.*)""")]
-        public void WhenIPress(string key)
-        {
-            new KeyPressesPage(this.driverContext).SendKeyboardKey(key);
-        }
-
         [When(@"I select option with text ""(.*)""")]
         public void WhenISelectOptionWithText(string text)
         {
@@ -99,24 +93,6 @@ namespace Ocaramba.ProjectExample.Features.StepDefinitions
             var currentText = this.scenarioContext.Get<string>("SelectedText");
             Console.Out.WriteLine(currentText);
             Verify.That(this.driverContext, () => Assert.AreEqual(currentText, expectedText), false, false);
-        }
-
-        [Then(@"Valid ""(.*)"" is displayed")]
-        public void ThenValidIsDisplayed(string expectedMessage)
-        {
-            var isElementPresent = new KeyPressesPage(this.driverContext).IsResultElementPresent;
-            Verify.That(this.driverContext, () => Assert.IsTrue(isElementPresent, "Results element does not exist for unclicked key"), false, false);
-
-            expectedMessage = string.Format(CultureInfo.CurrentCulture, "You entered: {0}", expectedMessage);
-            var resultText = new KeyPressesPage(this.driverContext).ResultText;
-            Verify.That(this.driverContext, () => Assert.AreEqual(resultText, expectedMessage), false, false);
-        }
-
-        [Then(@"Results element is not displayed")]
-        public void ThenResultsElementIsNotDisplayed()
-        {
-            var isElementPresent = new KeyPressesPage(this.driverContext).IsResultElementPresent;
-            Verify.That(this.driverContext, () => Assert.IsFalse(isElementPresent, "Results element exists for unclicked key"), false, false);
         }
     }
 }
